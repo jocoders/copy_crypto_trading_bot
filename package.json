@@ -1,0 +1,34 @@
+{
+  "name": "copytrading-bot-ts",
+  "version": "1.0.0",
+  "description": "Minimal Telegram bot for tracking crypto wallets using TypeScript and grammY",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx --watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --check src/**/*.ts",
+    "format:fix": "prettier --write src/**/*.ts"
+  },
+  "keywords": ["telegram", "bot", "typescript", "grammy", "crypto", "wallet", "tracking"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "grammy": "^1.21.1",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.1.1",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  }
+}

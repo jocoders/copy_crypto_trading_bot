@@ -1,5 +1,4 @@
-// src/db/models/botConfig.ts
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const botConfigSchema = new mongoose.Schema(
   {
@@ -16,7 +15,7 @@ const botConfigSchema = new mongoose.Schema(
     description: {
       type: String,
       trim: true,
-      default: "",
+      default: '',
     },
   },
   {
@@ -24,6 +23,6 @@ const botConfigSchema = new mongoose.Schema(
   }
 );
 
-const BotConfig = mongoose.model("BotConfig", botConfigSchema);
+const BotConfig = mongoose.model('BotConfig', botConfigSchema);
 
 export default BotConfig;

@@ -1,5 +1,4 @@
-// src/db/models/trackedWallets.ts
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const trackedWalletSchema = new mongoose.Schema(
   {
@@ -16,12 +15,12 @@ const trackedWalletSchema = new mongoose.Schema(
     name: {
       type: String,
       trim: true,
-      default: "",
+      default: '',
     },
     description: {
       type: String,
       trim: true,
-      default: "",
+      default: '',
     },
     isActive: {
       type: Boolean,
@@ -39,6 +38,6 @@ const trackedWalletSchema = new mongoose.Schema(
 
 trackedWalletSchema.index({ address: 1, chain: 1 }, { unique: true });
 
-const TrackedWallet = mongoose.model("TrackedWallet", trackedWalletSchema);
+const TrackedWallet = mongoose.model('TrackedWallet', trackedWalletSchema);
 
 export default TrackedWallet;

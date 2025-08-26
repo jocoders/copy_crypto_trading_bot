@@ -13,12 +13,26 @@
     "format": "prettier --check src/**/*.ts",
     "format:fix": "prettier --write src/**/*.ts"
   },
-  "keywords": ["telegram", "bot", "typescript", "grammy", "crypto", "wallet", "tracking"],
+  "keywords": [
+    "telegram",
+    "bot",
+    "typescript",
+    "grammy",
+    "crypto",
+    "wallet",
+    "tracking"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "axios": "^1.11.0",
+    "base-58": "^0.0.1",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.15.0",
     "grammy": "^1.21.1",
-    "dotenv": "^16.3.1"
+    "mongodb": "^6.18.0",
+    "mongoose": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",

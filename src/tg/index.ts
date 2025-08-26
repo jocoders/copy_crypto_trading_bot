@@ -11,8 +11,10 @@ import { MENU_CALLBACKS } from './components/menu';
 import { handleMenuCallback } from './handlers/menuCallbacks';
 import { ErrorService } from './services/error';
 
+export let bot: Bot | null = null;
+
 export function createBot(token: string): Bot {
-  const bot = new Bot(token);
+  bot = new Bot(token);
 
   // Register text commands
   bot.command('start', startCommand);

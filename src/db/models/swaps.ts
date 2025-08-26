@@ -1,5 +1,4 @@
-// src/db/models/swaps.ts
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const swapSchema = new mongoose.Schema(
   {
@@ -88,17 +87,17 @@ const swapSchema = new mongoose.Schema(
       name: {
         type: String,
         trim: true,
-        default: "",
+        default: '',
       },
       address: {
         type: String,
         trim: true,
-        default: "",
+        default: '',
       },
       pairAddress: {
         type: String,
         trim: true,
-        default: "",
+        default: '',
       },
     },
 
@@ -119,12 +118,12 @@ const swapSchema = new mongoose.Schema(
     status: {
       code: {
         type: String,
-        enum: ["pending", "completed", "failed", "skipped", "submitted"], // Added 'submitted' status
-        default: "pending",
+        enum: ['pending', 'completed', 'failed', 'skipped', 'submitted'], // Added 'submitted' status
+        default: 'pending',
       },
       message: {
         type: String,
-        default: "",
+        default: '',
       },
     },
   },
@@ -138,9 +137,9 @@ swapSchema.index(
   { sourceWallet: 1, sourceChain: 1, sourceTxHash: 1 },
   { unique: true }
 );
-swapSchema.index({ processed: 1, "status.code": 1 });
+swapSchema.index({ processed: 1, 'status.code': 1 });
 swapSchema.index({ sourceTimestamp: 1 });
 
-const Swap = mongoose.model("Swap", swapSchema);
+const Swap = mongoose.model('Swap', swapSchema);
 
 export default Swap;

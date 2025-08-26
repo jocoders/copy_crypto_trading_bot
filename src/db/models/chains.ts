@@ -1,5 +1,4 @@
-// src/db/models/chains.ts
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const ChainSchema = new mongoose.Schema({
   chainId: {
@@ -13,7 +12,7 @@ const ChainSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["evm", "solana"],
+    enum: ['evm', 'solana'],
     required: true,
   },
   rpcUrl: {
@@ -43,11 +42,11 @@ const ChainSchema = new mongoose.Schema({
   },
   swapAggregator: {
     type: String,
-    enum: ["1inch", "jupiter"],
+    enum: ['1inch', 'jupiter'],
     required: false, // Made optional
     default: function (this: any) {
       // Set default based on chain type
-      return this.type === "evm" ? "1inch" : "jupiter";
+      return this.type === 'evm' ? '1inch' : 'jupiter';
     },
   },
   isActive: {
@@ -75,26 +74,26 @@ const ChainSchema = new mongoose.Schema({
 });
 
 // Add virtual properties for explorer URLs
-ChainSchema.virtual("getExplorerTxUrl").get(function () {
+ChainSchema.virtual('getExplorerTxUrl').get(function () {
   return this.explorerTxUrl || `${this.blockExplorer}/tx/{hash}`;
 });
 
-ChainSchema.virtual("getExplorerAddressUrl").get(function () {
+ChainSchema.virtual('getExplorerAddressUrl').get(function () {
   if (this.explorerAddressUrl) return this.explorerAddressUrl;
 
-  if (this.type === "solana") {
+  if (this.type === 'solana') {
     return `${this.blockExplorer}/account/{address}`;
   }
   return `${this.blockExplorer}/address/{address}`;
 });
 
-ChainSchema.virtual("getExplorerUrl").get(function () {
+ChainSchema.virtual('getExplorerUrl').get(function () {
   return this.explorerUrl || this.blockExplorer;
 });
 
 // Set toJSON and toObject options to include virtuals
-ChainSchema.set("toJSON", { virtuals: true });
-ChainSchema.set("toObject", { virtuals: true });
+ChainSchema.set('toJSON', { virtuals: true });
+ChainSchema.set('toObject', { virtuals: true });
 
-const Chain = mongoose.model("Chain", ChainSchema);
+const Chain = mongoose.model('Chain', ChainSchema);
 export default Chain;
